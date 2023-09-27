@@ -1,8 +1,8 @@
 import { test, expect } from '@playwright/test';
 import { LoginPage } from '../pages/login';
-import dotenv from 'dotenv';
+//import dotenv from 'dotenv';
 
-dotenv.config();
+//dotenv.config();
 
 test.describe('Book Store Login', () => {
   let loginPage;
