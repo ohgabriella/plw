@@ -1,8 +1,4 @@
 import { type Locator, type Page } from '@playwright/test';
-import dotenv from 'dotenv';
-
-dotenv.config();
-
 export class LoginPage {
     readonly page: Page;
 
@@ -10,6 +6,8 @@ export class LoginPage {
     readonly userNameInput: Locator;
     readonly passwordInput: Locator;
     readonly userNameValue: Locator;
+    readonly idName: Locator;
+    readonly logout: Locator;
 
     constructor(page: Page) {
         this.page = page;
@@ -17,13 +15,15 @@ export class LoginPage {
         this.userNameInput = page.locator('#userName');
         this.passwordInput = page.locator('#password');
         this.userNameValue = page.locator('#userName-value');
+        this.idName = page.locator("#name");
+        this.logout = page.getByRole('button', { name: 'Log out' });
 
     }
 
-    async login() {
+    async login(username, password) {
         await this.loginButton.click();
-        await this.userNameInput.fill(process.env.USERNAME!);
-        await this.passwordInput.fill(process.env.PASSWORD!);
+        await this.userNameInput.fill(username);
+        await this.passwordInput.fill(password);
         await this.loginButton.click();
     }
 
