@@ -7,6 +7,7 @@ on:
 jobs:
     tests_e2e:
       name: Run end-to-end tests
+      environment: test
       runs-on: ubuntu-latest
       steps:
         - uses: actions/checkout@v3
@@ -16,4 +17,7 @@ jobs:
         - name: Install playwright browsers
           run: npx playwright install --with-deps
         - name: Run tests
+          env:
+            USERNAME: ${{ vars.USERNAME }}
+            PASSWORD: ${{ secrets.PASSWORD }}
           run: npx playwright test
