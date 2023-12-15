@@ -5,13 +5,19 @@ export class BookPage {
 
     readonly search: Locator;
     readonly buttonSearch: Locator;
-    readonly TBody
+    readonly typeSearch: Locator;
+    readonly userNameValue: Locator;
+    readonly list: Locator;
+    readonly itemList: Locator;
 
     constructor(page: Page) {
         this.page = page;
         this.search = page.getByPlaceholder('Type to search');
         this.buttonSearch = page.locator('#basic-addon2');
+        this.typeSearch = page.getByPlaceholder('Type to search');
+        this.userNameValue = page.locator('#userName-value');
+        this.list = page.locator('//span[@class="mr-2"]//a');
+        this.itemList = page.locator('.mr-2');
     }
 
 }
-
