@@ -1,8 +1,5 @@
 import { test, expect } from '@playwright/test';
 import { LoginPage } from '../pages/login';
-//import dotenv from 'dotenv';
-
-//dotenv.config();
 
 test.describe('Book Store Login', () => {
   let loginPage;
@@ -11,7 +8,7 @@ test.describe('Book Store Login', () => {
     await page.goto('/books');
 
     loginPage = new LoginPage(page);
-  });
+  });    
 
   test('successfull login', async () => {
     await loginPage.login(process.env.USERNAME!, process.env.PASSWORD!);

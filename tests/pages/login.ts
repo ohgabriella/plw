@@ -17,7 +17,6 @@ export class LoginPage {
         this.userNameValue = page.locator('#userName-value');
         this.idName = page.locator("#name");
         this.logout = page.getByRole('button', { name: 'Log out' });
-
     }
 
     async login(username, password) {
